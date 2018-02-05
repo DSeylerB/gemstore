@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { GemModel } from "../../gemmodel";
 @Component({
   selector: 'app-gem',
   templateUrl: './gem.component.html',
@@ -7,6 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GemComponent implements OnInit {
 
+    gem : GemModel = {
+      id: 1,
+      name: 'Dodecahedron',
+      price: 2.95,
+      description: 'Blue and pointy'
+    }
+    
   constructor() { }
 
   ngOnInit() {
