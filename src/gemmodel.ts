@@ -1,8 +1,9 @@
-// GemModel.ts
-
-export class GemModel {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
+export class gemModel {
+    id: number;
+    name: string;
+    price: number;
+    description: string;
+    fullImagePath: string;
+    inventory: number;
+    colors: string[];
 }
