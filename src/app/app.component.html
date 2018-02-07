@@ -1,12 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-navbar></app-navbar>
-<main class="Container">
-    
+<main class="container">
     <div class="row">
         <app-gem class="col-4" [gem] = "g" *ngFor="let g of gems"></app-gem>
     </div>
+    <p>{{cart.totalQuantity}}</p>
 </main>
-
-
-
-

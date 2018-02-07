@@ -29,7 +29,14 @@ export class AppComponent {
         description: 'Orange and pointy',
         fullImagePath: './assets/gem-09.gif',
         inventory: 0,
-        colors: ["red", "blue", "green"]
+        colors: ["red", "blue", "green"],
+        reviews: [{
+            id: 1,
+            createddate: 'Tuesday',
+            author: 'Dan',
+            rating: 1,
+            body: 'Not even a real dodecahedron!'
+        }]
     },
                         {
         id: 2,
@@ -38,7 +45,8 @@ export class AppComponent {
         description: 'Orange and round',
         fullImagePath: './assets/gem-06.gif',
         inventory: 5,
-        colors: ["orange", "yellow"]
+        colors: ["orange", "yellow"],
+        reviews: []
     },
                         {
         id: 3,
@@ -47,6 +55,7 @@ export class AppComponent {
         description: 'Orange and hexagonal',
         fullImagePath: './assets/gem-04.gif',
         inventory: 10,
-        colors: ["purple"]
+        colors: ["purple"],
+        reviews: []
     }]
 }

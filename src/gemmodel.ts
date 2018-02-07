@@ -1,3 +1,5 @@
+import { reviewmodel } from './reviewmodel';
+
 export class gemModel {
     id: number;
     name: string;
@@ -6,4 +8,5 @@ export class gemModel {
     fullImagePath: string;
     inventory: number;
     colors: string[];
+    reviews: reviewmodel[];
 }
