@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { gemModel } from '../../gemmodel';
 import { reviewmodel } from '../../reviewmodel';
 
+import { AvatarService } from '../avatar.service';
+
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
@@ -13,7 +15,9 @@ export class ReviewsComponent implements OnInit {
     newreview: reviewmodel;
     
     
-  constructor() { }
+  constructor(private avatarService: AvatarService) { }
+    
+    
     
     submitClicked(){
         this.gem.reviews.push(this.newreview);

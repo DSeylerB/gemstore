@@ -1,7 +1,10 @@
 <h6>Reviews</h6>
 <div *ngFor="let review of gem.reviews">
     <div class="row">
-        <div class="col-10">
+        <div class="col-3">
+	       <img class="img-fluid" src="{{ avatarService.generate(review.author) }}" />
+        </div>
+        <div class="col-7">
             <blockquote class="blockquote">
                 <p class="mb-0">{{review.body}}</p>
                 <footer class="blockquote-footer"><cite>{{review.author}}</cite></footer>
@@ -17,6 +20,7 @@
 
 
     <div class="row">
+        
         <div class="col-10">
             <blockquote class="blockquote">
                 <p class="mb-0">{{newreview.body}}</p>
@@ -53,7 +57,7 @@
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Your review:</label>
     <textarea class="form-control" id="Review" id="Review" name="Review" rows="3" [(ngModel)]="newreview.body" required [class.is-invalid]="review.invalid && review.touched || review.length >= review.maxlength" #review="ngModel" maxlength="400" [class.tooLong]="review.length >= review.maxlength"></textarea>
-      <div class="invalid-feedback">You have to actually write something (under 400 characters)...</div>
+      <div class="invalid-feedback">You have to actually write something...</div>
     <!--   <div class="tooLong">You're over 400 characters!</div> -->
   </div>
     <input type="submit" class="btn btn-default" value="Submit Review" [disabled]="reviewForm.invalid">

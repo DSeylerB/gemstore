@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { gemModel } from "../gemmodel";
 
 import { cartmodel } from "../cartModel";
 import { cartitemmodel } from "../cartItemModel";
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -11,51 +13,25 @@ import { cartitemmodel } from "../cartItemModel";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     title = 'Gem Store';
     now = Date.now().toString();
     hotdog = 'HOTDOOOOOOOOOOG';
   
+    constructor(private httpClient: HttpClient){
+        
+    }
+    
+    ngOnInit(){
+        //console.log(JSON.stringify(this.gems));
+        this.httpClient.get<gemModel[]>('assets/gems.json').subscribe(results => {this.gems = results});
+        
+    }
     cart: cartmodel = {
         totalPrice: 0,
         totalQuantity: 0,
         items: []
     }
     
-    gems : gemModel[] = [{
-        id: 1,
-        name: 'Dodecahedron',
-        price: 2.95,
-        description: 'Orange and pointy',
-        fullImagePath: './assets/gem-09.gif',
-        inventory: 0,
-        colors: ["red", "blue", "green"],
-        reviews: [{
-            id: 1,
-            createddate: 'Tuesday',
-            author: 'Dan',
-            rating: 1,
-            body: 'Not even a real dodecahedron!'
-        }]
-    },
-                        {
-        id: 2,
-        name: 'Octagonal',
-        price: 5.95,
-        description: 'Orange and round',
-        fullImagePath: './assets/gem-06.gif',
-        inventory: 5,
-        colors: ["orange", "yellow"],
-        reviews: []
-    },
-                        {
-        id: 3,
-        name: 'Hexagonal',
-        price: 6.95,
-        description: 'Orange and hexagonal',
-        fullImagePath: './assets/gem-04.gif',
-        inventory: 10,
-        colors: ["purple"],
-        reviews: []
-    }]
+    gems : gemModel[];
 }
